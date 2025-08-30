@@ -143,4 +143,15 @@ if (filter_var($client_ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTE
 }
 header("Content-Type: text/plain");
 echo 'sasasasas' . PHP_EOL;
+
+    if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } elseif (isset($_SERVER['HTTP_X_REAL_IP'])) {
+        $ip_address = $_SERVER['HTTP_X_REAL_IP'];
+    } else {
+        $ip_address = $_SERVER['REMOTE_ADDR'];
+    }
+echo 'ip_address: ' . $ip_address . PHP_EOL;
+
+
 echo $client_ip;
