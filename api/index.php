@@ -31,16 +31,18 @@ $client_ip = get_client_ip();
 if (filter_var($client_ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
     $client_ip = 'Invalid IP address: ' . $client_ip;
 }
+
+
 header("Content-Type: text/plain");
 
-if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    $ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
-} elseif (isset($_SERVER['HTTP_X_REAL_IP'])) {
-    $ip_address = $_SERVER['HTTP_X_REAL_IP'];
-} else {
-    $ip_address = $_SERVER['REMOTE_ADDR'];
-}
-echo 'ip_address: ' . $ip_address . PHP_EOL;
+// if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+//     $ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
+// } elseif (isset($_SERVER['HTTP_X_REAL_IP'])) {
+//     $ip_address = $_SERVER['HTTP_X_REAL_IP'];
+// } else {
+//     $ip_address = $_SERVER['REMOTE_ADDR'];
+// }
+// echo 'ip_address: ' . $ip_address . PHP_EOL;
 
 
 echo $client_ip;
