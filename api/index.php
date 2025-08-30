@@ -142,4 +142,5 @@ if (filter_var($client_ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTE
     $client_ip = 'Invalid IP address: ' . $client_ip;
 }
 header("Content-Type: text/plain");
+echo 'sasasasas' . PHP_EOL;
 echo $client_ip;
